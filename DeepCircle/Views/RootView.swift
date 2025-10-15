@@ -22,9 +22,7 @@ struct RootView: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .padding(.horizontal)
-                // To be removed later
-                Text("Hello, \(vm.selectedDataset.rawValue)!")
+                .padding([.horizontal, .vertical])
                 
                 ConcentricCirclesView()
                     .padding()
