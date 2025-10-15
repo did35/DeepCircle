@@ -27,6 +27,19 @@ struct RootView: View {
                 ConcentricCirclesView()
                     .padding()
                     .animation(.spring(response: 0.35, dampingFraction: 0.85), value: vm.focused)
+                
+                // User guidance
+                VStack(spacing: 6) {
+                    Text("💡 Tip:")
+                        .font(.headline)
+                        .foregroundStyle(.secondary)
+                    Text("Tap a circle to focus on its layer, and tap again to reset.")
+                        .font(.subheadline)
+                        .multilineTextAlignment(.center)
+                        .foregroundStyle(.secondary)
+                        .padding(.horizontal)
+                }
+                .padding(.bottom, 20)
             }
             .navigationTitle("AI Concentric Circles")
         }
