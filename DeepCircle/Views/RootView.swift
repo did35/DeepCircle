@@ -11,13 +11,26 @@ struct RootView: View {
     @Environment(AICirclesViewModel.self) private var vm
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, \(vm.selectedDataset.rawValue)!")
+        NavigationStack {
+            VStack(spacing: 16) {
+                Picker("Dataset", selection: .init(
+                    get: { vm.selectedDataset },
+                    set: { vm.apply(dataset: $0) }
+                )) {
+                    ForEach(AICirclesViewModel.Dataset.allCases) { ds in
+                        Text(ds.rawValue).tag(ds)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                Text("Hello, \(vm.selectedDataset.rawValue)!")
+                
+                ConcentricCirclesView()
+                    .padding()
+                    .animation(.spring(response: 0.35, dampingFraction: 0.85), value: vm.focused)
+            }
+            .navigationTitle("AI Concentric Circles")
         }
-        .padding()
     }
 }
 
