@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct ConcentricCirclesView: View {
+    @Environment(AICirclesViewModel.self) var vm
+    
     var body: some View {
-        Text("Hello, ConcentricCirclesView!")
+        GeometryReader { geo in
+            //let side = min(geo.size.width, geo.size.height)
+            ZStack {
+                circle()
+                Text("Hello, \(vm.selectedDataset.rawValue)!")
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(.white)
+            }
+            
+            
+        }
+    }
+    
+    @ViewBuilder
+    private func circle() -> some View {
+        Circle()
+            .foregroundStyle(.blue)
     }
 }
 
 #Preview {
     ConcentricCirclesView()
+        .environment(AICirclesViewModel.aiModel)
 }
