@@ -47,6 +47,16 @@ class AICirclesViewModel {
         }
         focused = nil
     }
+    
+    func circleOpacity(for layer: AILayer) -> Double {
+        guard let f = focused else { return 1.0 } // All visible when not focused
+        return f == layer ? 1.0 : 0.45 // dim non focus fills
+    }
+    
+    func labelOpacity(for layer: AILayer) -> Double {
+        guard let f = focused else { return 1.0 } // Show all labels when not focused
+        return f == layer ? 1.0 : 0.0 // hide other labels when focused
+    }
 }
 
 extension AICirclesViewModel {

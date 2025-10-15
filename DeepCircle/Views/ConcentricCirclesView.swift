@@ -17,6 +17,7 @@ struct ConcentricCirclesView: View {
             ZStack {
                 ForEach(vm.layers) { layer in
                     circle(for: layer, side: side)
+                        .zIndex(vm.focused == layer ? 1 : 0) // Bring focused to front
                         .opacity(vm.opacity(for: layer))
                         .onTapGesture {
                             vm.toggleFocus(layer)
@@ -39,6 +40,7 @@ struct ConcentricCirclesView: View {
         ZStack {
             Circle()
                 .fill(layer.color)
+                .opacity(vm.circleOpacity(for: layer))
             
             VStack(spacing: 6) {
                 Text(layer.title)
@@ -54,9 +56,15 @@ struct ConcentricCirclesView: View {
                     .foregroundStyle(.white.opacity(0.9))
                     .padding(.horizontal, diamater * 0.08)
             }
+            .opacity(vm.labelOpacity(for: layer))
+            .animation(.easeInOut(duration: 0.2), value: vm.focused)
             .offset(y: side * layer.labelYOffset)
+            .accessibilityHidden(vm.focused != nil && vm.focused != layer)
         }
         .frame(width: diamater, height: diamater)
+        .contentShape(Circle())
+        .scaleEffect(vm.focused == layer ? 1.0 : 0.9)
+        .animation(.spring(response: 0.35, dampingFraction: 0.85), value: vm.focused)
     }
 }
 
