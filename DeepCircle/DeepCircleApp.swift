@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct DeepCircleApp: App {
+    @State private var vm = AICirclesViewModel.aiModel
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environment(vm) // Swift 6.0: Inject @Observable into environment.
         }
     }
 }
