@@ -1,4 +1,10 @@
-# AIConcentric
+# DeepCircle  
+**AI • ML • DL Visual Education App**  
+
+Created by [Didier Delhaisse](https://www.linkedin.com/in/didierdelhaisse)  
+*Airline Captain | Swift + visionOS Developer | Lifelong Learner*
+
+## AIConcentric
 A small SwiftUI 6+ demo app visualizing the relationship between **Artificial Intelligence**, **Machine Learning**, and **Deep Learning** using concentric circles — with a focus on **MVVM**, **@Observable**, and **top-level dependency injection**.
 
 ---
