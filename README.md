@@ -45,6 +45,33 @@ The `AICirclesViewModel` is injected once at the app level, and all views access
 
 ---
 
+## 🧩 Thread Safety and Coordination
+
+For aviation professionals exploring Swift, this section draws a parallel between **thread safety in code** and **crew coordination in flight**.  
+Just as a well-coordinated cockpit avoids overlapping inputs and ensures clarity, SwiftUI’s architecture keeps state updates synchronized and predictable.
+
+`@Environment`, `@MainActor`, and structured concurrency (`.task`, `await`) work together to guarantee that all UI updates happen safely on the main thread — without manual locks or dispatch queues.
+
+| **Concept** | **Responsibility / Role in SwiftUI** | **Pilot Analogy** |
+|--------------|---------------------------------------|--------------------|
+| **`@Environment`** | Provides shared, consistent state across all views. Acts like a “public intercom” for app-wide information. | The **cockpit intercom** — all crew hear the same call (shared state) and react consistently without passing notes around. |
+| **SwiftUI runtime** | Coordinates when and how views update; guarantees UI updates occur on the **main thread** to avoid race conditions. | **ATC (Air Traffic Control)** — keeps everyone on the right frequency, prevents simultaneous transmissions (data races). |
+| **`@MainActor`** | Ensures that all UI-facing logic runs on the **main thread**, isolating it from background work. | The **Captain’s channel** — only one voice can issue final commands to flight controls; ensures clarity and safety. |
+| **Concurrency (`.task`, `await`)** | Runs asynchronous or background operations safely, then hands results back to the main thread for UI updates. | The **First Officer** performing external tasks (weather check, fuel calc) while the Captain keeps flying — teamwork through controlled hand-offs. |
+| **Actors (Swift Concurrency)** | Provide isolated, thread-safe data regions for complex state management. | **Crew members with their own defined duties** — each handles their zone without interfering with others, but reports through proper channels. |
+| **SwiftUI view updates** | Automatically propagated, scheduled, and thread-safe thanks to the declarative model. | **Flight deck coordination loop** — every action triggers updates (checklists, callouts) in perfect sequence and timing. |
+
+---
+
+### 🧭 Summary
+
+- `@Environment` **shares state safely** → like a crew communication system.  
+- `@MainActor` **keeps control on one channel** → like a captain maintaining authority.  
+- SwiftUI **ensures updates stay on the main thread** → like ATC sequencing takeoffs.  
+- Concurrency (`.task`, `await`, `actor`) **delegates background duties safely** → like good CRM in flight.
+
+---
+
 ## 🧩 Python & TensorFlow Parallel
 The project complements a TensorFlow course I’m following in Python, focused on **Supervised** and **Reinforcement Learning**.
 
