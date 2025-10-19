@@ -81,7 +81,11 @@ then SwiftUI feels like **autopilot** — you describe the goal and let it work.
 ---
 
 ## 🖼️ Screenshots
-*(Add here:)*  
+<img width="150" height="325" src="https://github.com/user-attachments/assets/5ab1b303-9d72-4534-b1dc-4a5d9b2a4d68" />
+<img width="150" height="325" src="https://github.com/user-attachments/assets/b24e710d-e7c1-41b5-83f6-49a503e33690" />
+<img width="150" height="325" src="https://github.com/user-attachments/assets/72b8269d-261f-4782-b98a-eafac028e7c6" />
+<img width="150" height="325" src="https://github.com/user-attachments/assets/7008c054-0042-4d48-b37a-12d6b328f7ba" />
+ 
 - AI → ML → Deep Learning  
 - Supervised → Reinforcement Learning
 
