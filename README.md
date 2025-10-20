@@ -91,10 +91,16 @@ then SwiftUI feels like **autopilot** — you describe the goal and let it work.
 
 ---
 
-## ⚙️ Requirements
-- macOS 15 or later  
-- Xcode 16+  
-- Swift 6+  
+## ⚙️ Technologies
+
+| Component | Description |
+|------------|-------------|
+| **Language** | Swift 6.2 |
+| **Framework** | SwiftUI |
+| **Pattern** | MVVM |
+| **Concurrency** | `.task`, `@State`, `@Environment`, `async/await` |
+| **IDE** | Xcode 26.0 + |
+| **Target** | iOS 18.0 SDK (compatible down to iOS 17) |
 
 ---
 
