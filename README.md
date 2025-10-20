@@ -72,11 +72,25 @@ Just as a well-coordinated cockpit avoids overlapping inputs and ensures clarity
 
 ---
 
-## 🧩 Python & TensorFlow Parallel
-The project complements a TensorFlow course I’m following in Python, focused on **Supervised** and **Reinforcement Learning**.
+## 🪩 Dual-Platform Showcase
 
-If Python feels like **hand-flying** — fully manual —  
-then SwiftUI feels like **autopilot** — you describe the goal and let it work.
+DeepCircle now runs seamlessly on **iOS** and **visionOS**, demonstrating the flexibility of SwiftUI’s declarative architecture.
+
+| Platform | Target | Scene Type | Icon | Notes |
+|-----------|---------|-------------|-------|--------|
+| **iOS** | `DeepCircleApp` | `WindowGroup` (standard) | 1024×1024 iOS icon | Tested on iPhone 15 & iPad simulators |
+| **visionOS** | `DeepCircleVisionApp` | `WindowGroup` (spatial window) | 3D concentric-circle icon | Tested on Apple Vision Pro simulator |
+
+### ✨ Highlights
+- **Single shared codebase** under `Shared/` (Model, ViewModel, Views).  
+- **Distinct App targets** for each platform with their own assets and window scenes.  
+- **Glass effect & spatial layout** on visionOS for a native floating-window experience.  
+- **MVVM pattern** and **@Observable ViewModel** used across both environments.  
+- Demonstrates true SwiftUI interoperability between iOS 18 and visionOS 2.0 SDKs.
+
+### 🧭 Architecture summary
+
+Shared logic → Compiled once per target → Platform-specific window and assets
 
 ---
 
@@ -85,9 +99,18 @@ then SwiftUI feels like **autopilot** — you describe the goal and let it work.
 <img width="150" height="325" src="https://github.com/user-attachments/assets/b24e710d-e7c1-41b5-83f6-49a503e33690" />
 <img width="150" height="325" src="https://github.com/user-attachments/assets/72b8269d-261f-4782-b98a-eafac028e7c6" />
 <img width="150" height="325" src="https://github.com/user-attachments/assets/7008c054-0042-4d48-b37a-12d6b328f7ba" />
- 
+ <img width="480" height="270" src="https://github.com/user-attachments/assets/05d02753-1766-4c5f-ba18-0c3443367149" />
+
 - AI → ML → Deep Learning  
 - Supervised → Reinforcement Learning
+
+---
+
+## 🧩 Python & TensorFlow Parallel
+The project complements a TensorFlow course I’m following in Python, focused on **Supervised** and **Reinforcement Learning**.
+
+If Python feels like **hand-flying** — fully manual —  
+then SwiftUI feels like **autopilot** — you describe the goal and let it work.
 
 ---
 
@@ -100,7 +123,7 @@ then SwiftUI feels like **autopilot** — you describe the goal and let it work.
 | **Pattern** | MVVM |
 | **Concurrency** | `.task`, `@State`, `@Environment`, `async/await` |
 | **IDE** | Xcode 26.0 + |
-| **Target** | iOS 18.0 SDK (compatible down to iOS 17) |
+| **Target** | iOS 18.0, visionOS 26+ |
 
 ---
 
